@@ -8,13 +8,22 @@ class QueryBuilder {
       $this->pdo = $pdo;
    }
 
-   public function getAll(){
+   public function getAll($table){
    
-      $sql = 'SELECT * FROM posts';
+      $sql = "SELECT * FROM {$table}";
       $statement = $this->pdo->prepare($sql);
       $statement->execute();
-      $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-      return $posts;
+      return $statement->fetchAll(PDO::FETCH_ASSOC);
+   }
+
+   public function create ($table, $params) {
+      
+      $keys = implode (',', array_keys($params));
+      $tags = ":". implode (',:', array_keys($params));
+      $sql = "INSERT INTO {$table} ({$keys}) VALUES ({$tags})";
+      $statement = $this->pdo->prepare($sql);
+      $statement->execute($params);
+
    }
 
 }

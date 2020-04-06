@@ -26,7 +26,7 @@
     <ul class="navbar-nav mr-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Main Page</a>
+        <a class="nav-link" href="index.php">Create Post</a>
       </li>
       
     </ul>
@@ -38,28 +38,15 @@
 <div class="container">
    <div class="row">
       <div class="col-md-8 offset-md-2">
-      <a href="create.php" class="btn btn-success">Add post</a> 
-         <table class="table">
-         <thead>
-            <tr>
-               <th scope="col">#</th>
-               <th scope="col">Title</th>
-               <th scope="col">Actions</th>
-            </tr>
-         </thead>
-         <tbody>
-            <? foreach ($posts as $post): ?>
-            <tr>
-               <th scope="row"><?echo $post[id]?></th>
-               <td><?echo $post[title]?></td>
-               <td>
-                  <a href="#" class="btn btn-warning">Edit</a> 
-                  <a href="#" class="btn btn-danger">Delete</a> 
-               </td>
-            </tr>
-            <? endforeach; ?>
-         </tbody>
-         </table>
+      <form action="store.php" method="POST">
+         
+         <div class="form-group">
+            <label for="exampleInputPassword1">Title</label>
+            <input type="text" name="title" placeholder="Title">
+         </div>
+         
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
       </div>  
    </div>     
 </div>  
