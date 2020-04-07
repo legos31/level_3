@@ -51,7 +51,7 @@
             <? foreach ($posts as $post): ?>
             <tr>
                <th scope="row"><?echo $post[id]?></th>
-               <td><?echo $post[title]?></td>
+               <td><a href="show.php"><?echo $post[title]?></a></td>
                <td>
                   <a href="#" class="btn btn-warning">Edit</a> 
                   <a href="#" class="btn btn-danger">Delete</a> 
